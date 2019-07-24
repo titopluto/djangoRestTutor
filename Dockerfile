@@ -1,6 +1,8 @@
 FROM python:3.7-alpine
-MAINTAINER London App Developer Ltd.
+LABEL Maintainer="Tito Pluto"
 
+# reommended for running python apps in docker; displays output
+#to screen
 ENV PYTHONUNBUFFERED 1
 
 # Install dependencies
@@ -8,7 +10,6 @@ COPY ./requirements.txt /requirements.txt
 RUN pip install -r /requirements.txt
 
 # Setup directory structure
-RUN mkdir /app
 WORKDIR /app
 COPY ./app/ /app
 
